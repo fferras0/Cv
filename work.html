@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أعمالي - فراس احمد</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <canvas id="network-bg"></canvas>
+    <div class="custom-cursor"></div>
+    <div class="page-transition active"></div>
+
+    <header>
+        <div class="profile-container">
+            <img src="Work/photo_2025-01-31_14-08-10.jpg" alt="Firas Ahmed" class="profile-pic">
+            <div class="brand-name">فراس <span>احمد</span></div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="skills.html">المهارات</a></li>
+                <li><a href="work.html">أعمالي</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+
+        <!-- Filter Buttons -->
+        <div class="filter-container">
+            <button class="filter-btn active" data-filter="all">الكل</button>
+            <button class="filter-btn" data-filter="web">تطوير الويب</button>
+            <button class="filter-btn" data-filter="video">فيديو & مونتاج</button>
+            <button class="filter-btn" data-filter="design">تصميم 3D & صور</button>
+        </div>
+
+        <div class="gallery">
+            <!-- Web Work -->
+            <div class="gallery-item" data-category="web">
+                <div
+                    style="height: 150px; background: #333; display: flex; align-items: center; justify-content: center; color: var(--accent-color); font-size: 3rem;">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3>مشروع قهوة بلاك (Qahwa BLK)</h3>
+                <p>تصميم وتطوير موقع كامل.</p>
+                <a href="https://qahwa-blk.vercel.app/ar" target="_blank" class="web-link">زيارة الموقع</a>
+            </div>
+
+            <!-- Video Work -->
+            <div class="gallery-item" data-category="video">
+                <video controls autoplay muted loop>
+                    <source src="Work/Fast Food.mp4" type="video/mp4">
+                    متصفحك لا يدعم الفيديو.
+                </video>
+                <h3>Fast Food</h3>
+            </div>
+            <div class="gallery-item" data-category="video">
+                <video controls autoplay muted loop>
+                    <source src="Work/mouse-Online Doctor.mp4" type="video/mp4">
+                    متصفحك لا يدعم الفيديو.
+                </video>
+                <h3>Online Doctor</h3>
+            </div>
+
+            <!-- Design & 3D Work -->
+            <div class="gallery-item" data-category="design">
+                <img src="Work/House (1).jpg" alt="House Design 1" onclick="openLightbox(0)" data-index="0">
+            </div>
+            <div class="gallery-item" data-category="design">
+                <img src="Work/House (2).jpg" alt="House Design 2" onclick="openLightbox(1)" data-index="1">
+            </div>
+            <div class="gallery-item" data-category="design">
+                <img src="Work/House (3).jpg" alt="House Design 3" onclick="openLightbox(2)" data-index="2">
+            </div>
+            <div class="gallery-item" data-category="design">
+                <img src="Work/c1.jpg" alt="Design C1" onclick="openLightbox(3)" data-index="3">
+            </div>
+            <div class="gallery-item" data-category="design">
+                <img src="Work/c2.jpg" alt="Design C2" onclick="openLightbox(4)" data-index="4">
+            </div>
+            <div class="gallery-item" data-category="design">
+                <img src="Work/c3.jpg" alt="Design C3" onclick="openLightbox(5)" data-index="5">
+            </div>
+            <div class="gallery-item" data-category="design">
+                <img src="Work/r1.jpg" alt="Design R1" onclick="openLightbox(6)" data-index="6">
+            </div>
+            <div class="gallery-item" data-category="design">
+                <img src="Work/r2.jpg" alt="Design R2" onclick="openLightbox(7)" data-index="7">
+            </div>
+            <div class="gallery-item" data-category="design">
+                <img src="Work/r3.jpg" alt="Design R3" onclick="openLightbox(8)" data-index="8">
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Lightbox for Image Slideshow -->
+    <div id="lightbox" class="lightbox">
+        <span class="close-lightbox" onclick="closeLightbox()">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+        <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+        <a class="next" onclick="changeSlide(1)">&#10095;</a>
+    </div>
+
+    <!-- Floating Action Button -->
+    <div class="fab-container">
+        <div class="fab-menu">
+            <a href="https://wa.me/962775442289" target="_blank" class="fab-item"><i class="fab fa-whatsapp"></i></a>
+            <a href="mailto:ffferras00@gmail.com" class="fab-item"><i class="fas fa-envelope"></i></a>
+            <a href="tel:0775442289" class="fab-item"><i class="fas fa-phone"></i></a>
+        </div>
+        <div class="fab-btn">
+            <i class="fas fa-comment-dots"></i>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

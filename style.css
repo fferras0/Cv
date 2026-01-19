@@ -1,0 +1,480 @@
+:root {
+    --bg-color: #0d0d0d;
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --text-color: #ededed;
+    --accent-color: #fca311;
+    --secondary-text: #a0a0a0;
+    --font-main: 'Cairo', sans-serif;
+    --transition-speed: 0.3s;
+}
+
+body {
+    font-family: var(--font-main);
+    background: #050505;
+    /* Solid dark background, canvas handles the rest */
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    overflow-x: hidden;
+    cursor: none;
+    /* Hide default cursor */
+}
+
+/* Network Background Canvas */
+#network-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0d0d0d;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--accent-color);
+    border-radius: 4px;
+}
+
+/* Custom Cursor */
+.custom-cursor {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--accent-color);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    transition: width 0.2s, height 0.2s, background-color 0.2s;
+    mix-blend-mode: difference;
+}
+
+.custom-cursor.cursor-hover {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(252, 163, 17, 0.2);
+    border-color: transparent;
+}
+
+/* Page Transition Overlay */
+.page-transition {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    z-index: 10000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+.page-transition.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 3rem;
+    background: rgba(13, 13, 13, 0.6);
+    backdrop-filter: blur(15px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.profile-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Nav */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 2rem;
+}
+
+nav ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: var(--transition-speed);
+    position: relative;
+    cursor: none;
+    /* For custom cursor */
+}
+
+nav ul li a:hover {
+    color: var(--accent-color);
+}
+
+.profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--accent-color);
+    box-shadow: 0 0 10px rgba(252, 163, 17, 0.3);
+}
+
+.brand-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+.brand-name span {
+    color: var(--accent-color);
+}
+
+/* Container */
+.container {
+    padding: 3rem 2rem;
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* Sections & Cards */
+h2 {
+    font-size: 2rem;
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+.info-item,
+.skill-list,
+.gallery {
+    background: var(--card-bg);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.1s ease-out;
+    /* Smoother for tilt */
+    transform-style: preserve-3d;
+}
+
+/* Typing Effect */
+.typing-text {
+    color: var(--accent-color);
+    font-weight: bold;
+    border-right: 2px solid var(--accent-color);
+    padding-right: 5px;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+/* Filters */
+.filter-container {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: transparent;
+    border: 1px solid var(--accent-color);
+    color: var(--text-color);
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+    cursor: none;
+    font-family: var(--font-main);
+    transition: var(--transition-speed);
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background: var(--accent-color);
+    color: #000;
+}
+
+/* Skills Progress Bars */
+.skill-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.skill-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.progress-bar-container {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: var(--accent-color);
+    width: 0%;
+    /* JS will fill this */
+    transition: width 1.5s ease-in-out;
+}
+
+/* Gallery Grid */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.gallery-item {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    overflow: hidden;
+    padding: 0;
+    transition: all 0.5s ease;
+}
+
+.gallery-item img,
+.gallery-item video {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.gallery-item h3 {
+    padding: 1rem;
+    margin: 0;
+    font-size: 1.1rem;
+    color: var(--text-color);
+}
+
+.gallery-item p {
+    padding: 0 1rem 1rem;
+    color: var(--secondary-text);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.web-link {
+    display: block;
+    background: var(--accent-color);
+    color: #000;
+    text-align: center;
+    padding: 1rem;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: none;
+}
+
+/* Floating Action Button (FAB) */
+.fab-container {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    /* Right for LTR, but visually check RTL */
+    left: 30px;
+    /* In RTL, 'right' in CSS usually means right, so we might need left if dir=rtl flips it? No, fixed pos is screen relative. */
+    z-index: 2000;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Adjust for RTL if needed, usually fixed elements ignore dir attribute */
+[dir="rtl"] .fab-container {
+    right: auto;
+    left: 30px;
+}
+
+.fab-btn {
+    width: 60px;
+    height: 60px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: #000;
+    box-shadow: 0 4px 15px rgba(252, 163, 17, 0.5);
+    cursor: none;
+    transition: transform 0.3s;
+}
+
+.fab-btn:hover {
+    transform: scale(1.1);
+}
+
+.fab-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none;
+    transition: all 0.3s;
+}
+
+.fab-menu.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+}
+
+.fab-item {
+    width: 50px;
+    height: 50px;
+    background: #fff;
+    color: #000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 1.2rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    cursor: none;
+    transition: background 0.3s;
+}
+
+.fab-item:hover {
+    background: var(--accent-color);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    header {
+        flex-direction: row;
+        padding: 1rem;
+    }
+
+    nav ul {
+        gap: 1rem;
+        font-size: 0.9rem;
+    }
+
+    .custom-cursor {
+        display: none;
+        /* Hide custom cursor on mobile */
+    }
+
+    body {
+        cursor: auto;
+    }
+
+    nav ul li a,
+    .fab-btn,
+    .fab-item,
+    .filter-btn,
+    .web-link {
+        cursor: pointer;
+    }
+}
+
+/* Lightbox Slideshow */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox.active {
+    display: flex;
+}
+
+.lightbox-content {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.close-lightbox {
+    position: absolute;
+    top: 30px;
+    right: 50px;
+    color: var(--accent-color);
+    font-size: 50px;
+    font-weight: bold;
+    cursor: none;
+    transition: 0.3s;
+}
+
+.close-lightbox:hover {
+    color: #fff;
+}
+
+.prev,
+.next {
+    cursor: none;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 20px;
+    margin-top: -50px;
+    color: var(--accent-color);
+    font-weight: bold;
+    font-size: 40px;
+    transition: 0.3s;
+    user-select: none;
+    border-radius: 3px;
+}
+
+.prev:hover,
+.next:hover {
+    background-color: rgba(252, 163, 17, 0.3);
+    color: #fff;
+}
+
+.next {
+    right: 0;
+}
+
+.prev {
+    left: 0;
+}
+
+[dir="rtl"] .close-lightbox {
+    right: auto;
+    left: 50px;
+}
