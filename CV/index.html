@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فراس احمد - السيرة الذاتية</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Setup for Advanced UI -->
+    <canvas id="network-bg"></canvas>
+    <div class="custom-cursor"></div>
+    <div class="page-transition active"></div>
+
+    <header>
+        <div class="profile-container">
+            <!-- Using the photo found in Work directory -->
+            <img src="Work/photo_2025-01-31_14-08-10.jpg" alt="Firas Ahmed" class="profile-pic">
+            <div class="brand-name">فراس <span>احمد</span></div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="skills.html">المهارات</a></li>
+                <li><a href="work.html">أعمالي</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <section class="section info-item" id="about">
+            <h2>نبذة شخصية</h2>
+            <div class="info-item-content">
+                <h3 style="margin-top: 0;">أنا <span class="typing-text"></span></h3>
+                <p><strong>العمر:</strong> 21 سنة</p>
+                <p><strong>اللغات:</strong> العربية (اللغة الأم)، الإنجليزية (جيد)</p>
+            </div>
+        </section>
+
+        <section class="section" id="education">
+            <h2>التعليم</h2>
+            <div class="info-item">
+                <h3>جامعة الزيتونة</h3>
+                <p>تخصص ملتيميديا (2023 - الآن)</p>
+            </div>
+            <div class="info-item">
+                <h3>شركة طلال أبو غزالة</h3>
+                <p>دورة أمن سيبراني</p>
+            </div>
+        </section>
+
+        <section class="section" id="contact">
+            <h2>معلومات الاتصال</h2>
+            <div class="info-item contact-info">
+                <p><strong>الهاتف:</strong> 0775442289</p>
+                <p><strong>البريد الإلكتروني:</strong> <a href="mailto:ffferras00@gmail.com"
+                        style="color: var(--accent-color); text-decoration: none;">ffferras00@gmail.com</a></p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Floating Action Button -->
+    <div class="fab-container">
+        <div class="fab-menu">
+            <a href="https://wa.me/962775442289" target="_blank" class="fab-item"><i class="fab fa-whatsapp"></i></a>
+            <a href="mailto:ffferras00@gmail.com" class="fab-item"><i class="fas fa-envelope"></i></a>
+            <a href="tel:0775442289" class="fab-item"><i class="fas fa-phone"></i></a>
+        </div>
+        <div class="fab-btn">
+            <i class="fas fa-comment-dots"></i>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
